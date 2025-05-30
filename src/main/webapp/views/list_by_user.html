@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Giỏ hàng của người dùng</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>ID Sản phẩm</th>
+        <th>Số lượng</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cart : ${carts}">
+        <td th:text="${cart.id}"></td>
+        <td th:text="${cart.idProduct}"></td>
+        <td th:text="${cart.quantity}"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="cart">Quay lại tất cả</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<section th:fragment="HEADER">
+    <h1>Đây là HEADER</h1>
+    <nav>
+        <a th:href="@{/home}">Home</a> |
+        <a th:href="@{/contact}">Contact</a> |
+        <a th:href="@{/about}">About</a>
+    </nav>
+    <hr>
+</section>
+
+<section th:fragment="FOOTER">
+    <hr>
+    <p>Đây là FOOTER</p>
+</section>
+
+</body>
+</html>

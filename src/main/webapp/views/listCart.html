@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Danh sách giỏ hàng</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>ID Người dùng</th>
+        <th>ID Sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Hành động</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cart : ${carts}">
+        <td th:text="${cart.id}"></td>
+        <td th:text="${cart.idUser}"></td>
+        <td th:text="${cart.idProduct}"></td>
+        <td th:text="${cart.quantity}"></td>
+        <td>
+            <a th:href="@{'/cart/edit/' + ${cart.id}}">Sửa</a> |
+            <a th:href="@{'/cart/delete/' + ${cart.id}}" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="cart/add">Thêm vào giỏ hàng</a>
+</body>
+</html>

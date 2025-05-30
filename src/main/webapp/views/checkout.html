@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Thanh toán</title>
+</head>
+<body>
+<h2>Thanh toán</h2>
+
+<form th:action="@{/order/place(userId=${userId})}" th:object="${order}" method="post">
+    <label>Người nhận:</label>
+    <input type="text" th:field="*{recipientName}" required/><br/>
+
+    <label>Địa chỉ:</label>
+    <input type="text" th:field="*{address}" required/><br/>
+
+    <label>Số điện thoại:</label>
+    <input type="text" th:field="*{phoneNumber}" required/><br/>
+
+    <h3>Giỏ hàng</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID Sản phẩm</th>
+            <th>Số lượng</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${cartItems}">
+            <td th:text="${item.idProduct}"></td>
+            <td th:text="${item.quantity}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button type="submit">Đặt hàng</button>
+</form>
+
+<div th:if="${error}">
+    <p style="color:red;" th:text="${error}"></p>
+</div>
+
+<a th:href="@{/order(userId=${userId})}">Hủy</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Danh sách sản phẩm</h2>
+<ul>
+    <li th:each="p : ${products}">
+        <span th:text="${p.name}"></span> -
+        <span th:text="${p.price} + 'đ'"></span>
+        <a th:href="@{/products/detail/{id}(id=${p.id})}">Xem chi tiết</a>
+    </li>
+</ul>
+</body>
+</html>

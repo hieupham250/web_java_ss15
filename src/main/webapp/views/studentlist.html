@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Danh sách sinh viên</h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Mã SV</th>
+        <th>Họ tên</th>
+        <th>Tuổi</th>
+        <th>Lớp</th>
+        <th>Email</th>
+        <th>Địa chỉ</th>
+        <th>Điện thoại</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.studentClass}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.address}"></td>
+        <td th:text="${student.phone}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

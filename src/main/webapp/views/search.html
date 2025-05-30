@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Tìm kiếm sản phẩm</h2>
+
+<form action="#" th:action="@{/search}" method="post">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="Nhập tên hoặc mã sản phẩm"/>
+    <button type="submit">Tìm</button>
+</form>
+
+<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+
+<table th:if="${results != null and !results.isEmpty()}" border="1">
+    <thead>
+    <tr>
+        <th>Mã sản phẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Giá</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${results}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<p th:if="${results != null and results.isEmpty()}" style="color:gray;">
+    Không tìm thấy sản phẩm phù hợp.
+</p>
+</body>
+</html>

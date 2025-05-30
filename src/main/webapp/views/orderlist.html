@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Danh sách đơn hàng</title>
+</head>
+<body>
+<h2>Danh sách đơn hàng</h2>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID Đơn</th>
+    <th>Người nhận</th>
+    <th>Địa chỉ</th>
+    <th>SĐT</th>
+    <th>Ngày đặt</th>
+    <th>Chi tiết</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="order : ${orders}">
+    <td th:text="${order.orderId}"></td>
+    <td th:text="${order.recipientName}"></td>
+    <td th:text="${order.address}"></td>
+    <td th:text="${order.phoneNumber}"></td>
+    <td th:text="${#dates.format(order.orderDate, 'dd-MM-yyyy HH:mm')}"></td>
+    <td>
+      <a th:href="@{/order/detail(orderId=${order.orderId})}">Xem</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<a th:href="@{/order/checkout(userId=${userId})}">Tiếp tục mua hàng</a>
+</body>
+</html>

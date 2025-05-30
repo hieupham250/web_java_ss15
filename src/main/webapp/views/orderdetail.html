@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Chi tiết đơn hàng</title>
+</head>
+<body>
+<h2>Chi tiết đơn hàng #<span th:text="${order.orderId}"></span></h2>
+
+<p><strong>Người nhận:</strong> <span th:text="${order.recipientName}"></span></p>
+<p><strong>Địa chỉ:</strong> <span th:text="${order.address}"></span></p>
+<p><strong>SĐT:</strong> <span th:text="${order.phoneNumber}"></span></p>
+<p><strong>Ngày đặt:</strong> <span th:text="${#dates.format(order.orderDate, 'dd-MM-yyyy HH:mm')}"></span></p>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>ID Sản phẩm</th>
+    <th>Số lượng</th>
+    <th>Giá hiện tại</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="detail : ${orderDetails}">
+    <td th:text="${detail.productId}"></td>
+    <td th:text="${detail.quantity}"></td>
+    <td th:text="${detail.currentPrice}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<a th:href="@{/order(userId=1)}">Quay lại danh sách đơn hàng</a>
+</body>
+</html>
